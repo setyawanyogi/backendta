@@ -1,4 +1,5 @@
 <?php 
+  require "../conn.php";
 
     //  $connection = new mysqli("localhost","root","","db_eparkir");
     //  $data       = mysqli_query($connection, "SELECT * FROM kendaraan");
@@ -11,13 +12,13 @@
     // echo str_replace('"', '', $final_data);
 
 
-  $db = "db_eparkir";
-  $host = "localhost";
-  $db_user = 'root';
-  $db_password = '';
+  // $db = "db_eparkir";
+  // $host = "localhost";
+  // $db_user = 'root';
+  // $db_password = '';
   //MySql server and database info
 
-  $link = mysqli_connect($host, $db_user, $db_password, $db);
+  // $conn = mysqli_connect($host, $db_user, $db_password, $db);
   //connecting to database
 
   if(isset($_REQUEST["jenis_kendaraan"])){
@@ -30,11 +31,11 @@
 //   $json["errmsg"] = "";
   $json["kendaraan"] = array();
 
-  $country = mysqli_real_escape_string($link, $country);
+  $country = mysqli_real_escape_string($con, $country);
   //remove the conflict of inverted comma with SQL query. 
 
   $sql = "SELECT * FROM kendaraan";
-  $res = mysqli_query($link, $sql);
+  $res = mysqli_query($con, $sql);
   $numrows = mysqli_num_rows($res);
   if($numrows > 0){
      //check if there is any data
@@ -46,7 +47,7 @@
       $json["errmsg"] = "No any data to show.";
   }
 
-  mysqli_close($link);
+  mysqli_close($con);
 
   header('Content-Type: application/json');
   // tell browser that its a json data
