@@ -39,30 +39,14 @@ CREATE TABLE IF NOT EXISTS `parkir` (
   `jam_masuk` time DEFAULT NULL,
   `jam_keluar` time DEFAULT NULL,
   `tgl` date DEFAULT NULL,
-  `barcode` char(20) DEFAULT NULL,
+  `image` text,
   `status` enum('Parkir','Selesai') NOT NULL,
+  `addedby` int(11) DEFAULT NULL,
   PRIMARY KEY (`id_parkir`)
-) ENGINE=InnoDB AUTO_INCREMENT=22 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=126 DEFAULT CHARSET=latin1;
 
--- Dumping data for table db_eparkir.parkir: ~12 rows (approximately)
+-- Dumping data for table db_eparkir.parkir: ~7 rows (approximately)
 /*!40000 ALTER TABLE `parkir` DISABLE KEYS */;
-INSERT INTO `parkir` (`id_parkir`, `id_kendaraan`, `plat_nomor`, `jam_masuk`, `jam_keluar`, `tgl`, `barcode`, `status`) VALUES
-	(1, 1, 'N9732AA', '14:50:40', '16:15:26', '2022-06-26', NULL, 'Parkir'),
-	(2, 1, 'N4383AA', '16:38:46', '16:38:59', '2022-07-03', NULL, 'Parkir'),
-	(3, 2, 'B8394OP', '16:40:08', NULL, '2022-07-02', NULL, 'Selesai'),
-	(4, 2, 'N7839KK', '16:43:37', NULL, '2022-07-01', NULL, 'Parkir'),
-	(5, 1, 'B1203UU', '16:44:37', NULL, '2022-07-04', NULL, 'Parkir'),
-	(6, 1, 'Z1489PS', '19:51:00', NULL, '2022-07-05', NULL, 'Parkir'),
-	(8, 1, 'N8732HA', '09:08:58', NULL, '2022-07-06', NULL, 'Parkir'),
-	(13, 1, 'M9090KK', '16:56:33', NULL, '2022-07-13', NULL, 'Parkir'),
-	(14, 2, 'N7654', '17:07:34', NULL, '2022-07-13', NULL, 'Parkir'),
-	(15, 1, 'B8721AA', '17:10:18', NULL, '2022-07-13', NULL, 'Parkir'),
-	(16, 2, 'B521HB', '17:16:41', NULL, '2022-07-13', NULL, 'Parkir'),
-	(17, 1, 'N6333AD', '17:24:33', NULL, '2022-07-13', NULL, 'Parkir'),
-	(18, 1, 'Z8271MM', '17:30:45', NULL, '2022-07-13', NULL, 'Parkir'),
-	(19, 2, 'AD7672OP', '17:33:09', NULL, '2022-07-13', NULL, 'Parkir'),
-	(20, 1, 'N8827FF', '14:04:36', NULL, '2022-07-14', NULL, 'Parkir'),
-	(21, 2, 'B7872JJ', '14:09:13', NULL, '2022-07-14', NULL, 'Parkir');
 /*!40000 ALTER TABLE `parkir` ENABLE KEYS */;
 
 -- Dumping structure for table db_eparkir.role
